@@ -128,18 +128,7 @@ const Services = () => {
           ))}
         </div>
         
-        <div className="services-footer">
-          <div className="footer-content">
-            <h3>Ready to Get Started?</h3>
-            <p>Every child's journey is unique. Let's create a personalized plan that works for your family.</p>
-            <button 
-              className="btn btn-primary"
-              onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
-            >
-              Schedule a Consultation
-            </button>
-          </div>
-        </div>
+        
       </div>
     </section>
   );

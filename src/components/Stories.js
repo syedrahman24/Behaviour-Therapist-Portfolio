@@ -137,7 +137,7 @@ const Stories = () => {
               interventions, and collaborative support, your family can achieve similar success.
             </p>
             <button 
-              className="btn btn-primary"
+              className="unique"
               onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
             >
               Start Your Journey Today

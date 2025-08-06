@@ -234,21 +234,37 @@
 }
 
 .footer-message {
-  background: var(--bg-primary);
+background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
   border-radius: var(--radius-xl);
   padding: 3rem 2rem;
   box-shadow: var(--shadow-md);
 }
 
+.unique{
+    display: inline-block;
+    padding: 0.875rem 2rem;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    text-align: center;
+    transition: var(--transition-smooth) 0.3s ease;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1rem;
+    background-color: #fff;
+    color: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+    box-shadow: var(--shadow-md);
+}
+
 .footer-message h3 {
   font-size: 2rem;
-  color: var(--text-primary);
+  color: #fff;
   margin-bottom: 1rem;
 }
 
 .footer-message p {
   font-size: 1.1rem;
-  color: var(--text-secondary);
+  color: #1e1e1e;
   margin-bottom: 2rem;
   max-width: 700px;
   margin-left: auto;

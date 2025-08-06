@@ -1,7 +1,7 @@
 /* Services Component Styles */
 .services {
   padding: var(--section-padding);
-  background: var(--bg-primary);
+  background: #dde0e4;
   position: relative;
 }
 
@@ -39,7 +39,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 2rem;
-  margin-bottom: 4rem;
+  /* margin-bottom: 4rem; */
 }
 
 /* Service Card */

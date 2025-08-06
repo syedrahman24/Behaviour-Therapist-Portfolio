@@ -1,7 +1,7 @@
 /* Contact Component Styles */
 .contact {
   padding: var(--section-padding);
-  background: var(--bg-primary);
+background: linear-gradient(135deg, #ffffff 0%, #e7e7e7 10%, var(--bg-accent) 100%);
   position: relative;
 }
 
