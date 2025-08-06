@@ -1,0 +1,454 @@
+/* Contact Component Styles */
+.contact {
+  padding: var(--section-padding);
+  background: var(--bg-primary);
+  position: relative;
+}
+
+.contact::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, 
+    rgba(99, 102, 241, 0.02) 0%, 
+    rgba(16, 185, 129, 0.02) 100%);
+  z-index: 1;
+}
+
+.contact .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Contact Content Layout */
+.contact-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  margin-bottom: 4rem;
+}
+
+/* Contact Information */
+.contact-info h3 {
+  font-size: 1.75rem;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+}
+
+.contact-info > p {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+}
+
+/* Contact Methods */
+.contact-methods {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.contact-method {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  transition: var(--transition-smooth);
+  border: 1px solid var(--neutral-200);
+}
+
+.contact-method:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary-color);
+}
+
+.contact-method.emergency {
+  background: linear-gradient(135deg, 
+    rgba(239, 68, 68, 0.1), 
+    rgba(220, 38, 38, 0.05));
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.contact-method.emergency:hover {
+  border-color: #ef4444;
+}
+
+.method-icon {
+  font-size: 1.5rem;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.contact-method.emergency .method-icon {
+  background: linear-gradient(135deg, #ef4444, #f87171);
+}
+
+.method-info h4 {
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.method-info p {
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 0.25rem;
+}
+
+.method-info span {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+/* Insurance Info */
+.insurance-info {
+  background: var(--bg-accent);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  border-left: 4px solid var(--secondary-color);
+}
+
+.insurance-info h4 {
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.insurance-info ul {
+  list-style: none;
+  padding: 0;
+}
+
+.insurance-info li {
+  padding: 0.5rem 0;
+  color: var(--text-secondary);
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.insurance-info li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--secondary-color);
+  font-weight: bold;
+}
+
+/* Contact Form */
+.contact-form {
+  background: var(--bg-secondary);
+  border-radius: var(--radius-xl);
+  padding: 2.5rem;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--neutral-200);
+}
+
+.contact-form h3 {
+  font-size: 1.75rem;
+  color: var(--text-primary);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* Form Layout */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 0.875rem 1rem;
+  border: 2px solid var(--neutral-200);
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  transition: var(--transition-fast);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* Checkbox Group */
+.checkbox-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: normal;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: var(--radius-sm);
+  transition: var(--transition-fast);
+}
+
+.checkbox-label:hover {
+  background: var(--bg-accent);
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: auto;
+  margin: 0;
+}
+
+/* Form Note */
+.form-note {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  text-align: center;
+  margin-top: 1rem;
+  line-height: 1.5;
+}
+
+/* Consultation Info */
+.consultation-info {
+  background: var(--bg-secondary);
+  border-radius: var(--radius-xl);
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.consultation-info h3 {
+  font-size: 2rem;
+  color: var(--text-primary);
+  margin-bottom: 2rem;
+}
+
+.consultation-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+.step-number {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 1rem;
+  box-shadow: var(--shadow-md);
+}
+
+.step-content h4 {
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.step-content p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .contact-content {
+    gap: 3rem;
+  }
+  
+  .contact-form {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-content {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .form-group textarea{
+    margin-bottom: 15px;
+  }
+  
+  .checkbox-group {
+    grid-template-columns: 1fr;
+  }
+  
+  .consultation-steps {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .contact-form {
+    padding: 1.5rem;
+  }
+  
+  .consultation-info {
+    padding: 2rem 1.5rem;
+  }
+  
+  .consultation-info h3 {
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-method {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+    padding: 1.25rem;
+  }
+  
+  .method-info h4 {
+    margin-bottom: 0.5rem;
+  }
+  
+  .contact-form {
+    padding: 1.25rem;
+  }
+  
+  .contact-form h3 {
+    font-size: 1.5rem;
+  }
+  
+  .consultation-info {
+    padding: 1.5rem 1rem;
+  }
+  
+  .consultation-info h3 {
+    font-size: 1.5rem;
+  }
+  
+  .step-number {
+    width: 50px;
+    height: 50px;
+    font-size: 1.25rem;
+  }
+}
+
+/* Animation Effects */
+@media (prefers-reduced-motion: no-preference) {
+  .contact-method {
+    opacity: 0;
+    transform: translateX(-30px);
+    animation: slideInLeft 0.6s ease forwards;
+  }
+  
+  .contact-method:nth-child(1) { animation-delay: 0.1s; }
+  .contact-method:nth-child(2) { animation-delay: 0.2s; }
+  .contact-method:nth-child(3) { animation-delay: 0.3s; }
+  .contact-method:nth-child(4) { animation-delay: 0.4s; }
+  
+  .step {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.6s ease forwards;
+  }
+  
+  .step:nth-child(1) { animation-delay: 0.2s; }
+  .step:nth-child(2) { animation-delay: 0.4s; }
+  .step:nth-child(3) { animation-delay: 0.6s; }
+}
+
+/* Accessibility */
+.form-group input:invalid {
+  border-color: #ef4444;
+}
+
+.form-group input:valid {
+  border-color: var(--secondary-color);
+}
+
+.checkbox-label:focus-within {
+  background: var(--bg-accent);
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .contact-method {
+    border: 2px solid var(--text-primary);
+  }
+  
+  .contact-form {
+    border: 2px solid var(--text-primary);
+  }
+  
+  .method-icon {
+    background: var(--text-primary);
+    color: var(--bg-primary);
+  }
+}
+
+/* Print styles */
+@media print {
+  .contact-form {
+    display: none;
+  }
+  
+  .consultation-info {
+    background: none;
+    box-shadow: none;
+  }
+}
