@@ -3,87 +3,154 @@ import { motion } from 'framer-motion';
 import './Hero.css';
 
 const Hero = () => {
+  const scrollToSection = (sectionId) => {
+    const element = document.querySelector(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
     <section id="home" className="hero">
-      <div className="hero-content">
-        <div className="hero-text">
-          <h1>
-            Empowering Lives Through 
-            <span className="highlight"> Behavioral Therapy</span>
-          </h1>
-          <p className="hero-subtitle">
-            With 3 years of dedicated experience, I help children and families 
-            overcome challenges and build brighter futures through evidence-based 
-            behavioral interventions.
-          </p>
-          <div className="hero-stats">
-            <div className="stat license">
-              <span className="stat-number one">100%</span>
-              <span className="stat-label">R C I  Licensed</span>
-            </div>
-            <div className="stat">
-              <span className="stat-number">3+</span>
-              <span className="stat-label">Years Experience</span>
-            </div>
-            <div className="stat">
-              <span className="stat-number">150+</span>
-              <span className="stat-label">Families Helped</span>
-            </div>
-            <div className="stat">
-              <span className="stat-number">600+</span>
-              <span className="stat-label">Consultations Completed</span>
-            </div>
-          </div>
-          <div className="hero-buttons">
-            <button 
-              className="btn btn-primary"
-              onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
+      <div className="hero-container">
+        {/* Banner Above Main Heading */}
+        <motion.div 
+          className="hero-banner"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.1 }}
+        >
+          Transforming Lives Through Behavioral Excellence
+        </motion.div>
+
+        {/* Main Layout */}
+        <div className="hero-layout">
+          {/* Left Side */}
+          <div className="hero-left">
+            {/* Main Heading at Left Top */}
+            <motion.h1 
+              className="hero-heading"
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
             >
-              Schedule Consultation
-            </button>
-            <button 
-              className="btn btn-secondary"
-              onClick={() => document.querySelector('#stories')?.scrollIntoView({ behavior: 'smooth' })}
+              Help Your Child <span className="heading-highlight">Thrive & Succeed</span>
+            </motion.h1>
+
+            {/* Badges Below Heading */}
+            <motion.div 
+              className="hero-badges"
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
             >
-              View Success Stories
-            </button>
+              <div className="badge">
+                <span className="badge-icon">🏆</span>
+                BCBA Certified
+              </div>
+              <div className="badge">
+                <span className="badge-icon">⭐</span>
+                3+ Years Experience
+              </div>
+              <div className="badge">
+                <span className="badge-icon">✅</span>
+                Evidence-Based
+              </div>
+            </motion.div>
+
+            {/* Proven Results Data Below Badges */}
+            <motion.div 
+              className="hero-results-inline"
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.7 }}
+            >
+              <div className="results-boxes">
+                <div className="result-box">
+                  <div className="result-number">150+</div>
+                  <div className="result-label">Families Helped</div>
+                </div>
+                <div className="result-box">
+                  <div className="result-number">600+</div>
+                  <div className="result-label">Sessions</div>
+                </div>
+                <div className="result-box">
+                  <div className="result-number">95%</div>
+                  <div className="result-label">Success Rate</div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Book Consultation Button Below Results */}
+            <motion.div 
+              className="hero-cta"
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.9 }}
+            >
+              <button 
+                className="consultation-btn"
+                onClick={() => scrollToSection('#contact')}
+              >
+                <span className="btn-icon">📞</span>
+                Schedule Free Consultation
+              </button>
+            </motion.div>
           </div>
-        </div>
-        <div className="hero-image">
-          <motion.div
-            className="hero-card"
-            initial={{ opacity: 0, y: 60, scale: 0.8 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ type: 'spring', bounce: 0.4, duration: 0.8, delay: 0 }}
-            viewport={{ once: true, amount: 0.5 }}
+
+          {/* Right Side - Creative Content */}
+          <motion.div 
+            className="hero-creative"
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
           >
-            <div className="card-content">
-              <h3>✨ Building Confidence</h3>
-              <p>Helping children develop self-regulation and social skills</p>
-            </div>
-          </motion.div>
-          <motion.div
-            className="hero-card"
-            initial={{ opacity: 0, y: 60, scale: 0.8 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ type: 'spring', bounce: 0.4, duration: 0.8, delay: 0.15 }}
-            viewport={{ once: true, amount: 0.5 }}
-          >
-            <div className="card-content">
-              <h3>🎯 Targeted Approach</h3>
-              <p>Personalized therapy plans for each unique child</p>
-            </div>
-          </motion.div>
-          <motion.div
-            className="hero-card"
-            initial={{ opacity: 0, y: 60, scale: 0.8 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ type: 'spring', bounce: 0.4, duration: 0.8, delay: 0.3 }}
-            viewport={{ once: true, amount: 0.5 }}
-          >
-            <div className="card-content">
-              <h3>👨‍👩‍👧‍👦 Family Support</h3>
-              <p>Empowering parents with tools and strategies</p>
+            <div className="creative-card">
+              <div className="creative-header">
+                <div className="therapist-avatar">
+                  <div className="avatar-circle">👩‍⚕️</div>
+                  <div className="online-indicator"></div>
+                </div>
+                <div className="therapist-info">
+                  <h3>Dr. Huda Jabeen</h3>
+                  <p>Licensed BCBA Therapist</p>
+                </div>
+              </div>
+              
+              <div className="creative-content">
+                <div className="skill-progress">
+                  <div className="skill-item">
+                    <span>Communication Skills</span>
+                    <div className="progress-bar">
+                      <div className="progress-fill" style={{width: '92%'}}></div>
+                    </div>
+                    <span className="progress-text">92%</span>
+                  </div>
+                  
+                  <div className="skill-item">
+                    <span>Social Interaction</span>
+                    <div className="progress-bar">
+                      <div className="progress-fill" style={{width: '88%'}}></div>
+                    </div>
+                    <span className="progress-text">88%</span>
+                  </div>
+                  
+                  <div className="skill-item">
+                    <span>Behavioral Management</span>
+                    <div className="progress-bar">
+                      <div className="progress-fill" style={{width: '95%'}}></div>
+                    </div>
+                    <span className="progress-text">95%</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="creative-footer">
+                <div className="availability">
+                  <div className="availability-dot pulsing"></div>
+                  <span>Available Today 2:00 PM</span>
+                </div>
+              </div>
             </div>
           </motion.div>
         </div>

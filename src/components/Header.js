@@ -30,26 +30,66 @@ const Header = () => {
 
   return (
     <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
-      <div className="container">
+      <div className="header-container">
         <div className="logo">
-          <h2>Dr. Huda Jabeen</h2>
-          <span>Behavior Therapist, Special Educator</span>
+          <div className="logo-icon">
+            <span className="icon-gradient">🧠</span>
+          </div>
+          <div className="logo-text">
+            <h2 className="logo-name">Dr. Huda Jabeen</h2>
+            <span className="logo-subtitle">BCBA • Behavior Therapist</span>
+          </div>
         </div>
         
         <nav className={`nav ${isMenuOpen ? 'nav-open' : ''}`}>
-          <ul>
-            <li><a href='#home' onClick={() => scrollToSection('#home')}>Home</a></li>
-            <li><a href='#about' onClick={() => scrollToSection('#about')}>About</a></li>
-            <li><a href='#services' onClick={() => scrollToSection('#services')}>Services</a></li>
-            <li><a href='#stories' onClick={() => scrollToSection('#stories')}>Success Stories</a></li>
-            <li><a href='#contact' onClick={() => scrollToSection('#contact')}>Contact</a></li>
+          <ul className="nav-list">
+            <li className="nav-item">
+              <a href='#home' onClick={() => scrollToSection('#home')} className="nav-link">
+                <span className="nav-icon">🏠</span>
+                <span className="nav-text">Home</span>
+              </a>
+            </li>
+            <li className="nav-item">
+              <a href='#about' onClick={() => scrollToSection('#about')} className="nav-link">
+                <span className="nav-icon">👩‍⚕️</span>
+                <span className="nav-text">About</span>
+              </a>
+            </li>
+            <li className="nav-item">
+              <a href='#services' onClick={() => scrollToSection('#services')} className="nav-link">
+                <span className="nav-icon">🎯</span>
+                <span className="nav-text">Services</span>
+              </a>
+            </li>
+            <li className="nav-item">
+              <a href='#stories' onClick={() => scrollToSection('#stories')} className="nav-link">
+                <span className="nav-icon">⭐</span>
+                <span className="nav-text">Success Stories</span>
+              </a>
+            </li>
+            <li className="nav-item">
+              <a href='#contact' onClick={() => scrollToSection('#contact')} className="nav-link">
+                <span className="nav-icon">📞</span>
+                <span className="nav-text">Contact</span>
+              </a>
+            </li>
           </ul>
+          
+          <div className="nav-cta">
+            <button 
+              className="cta-button"
+              onClick={() => scrollToSection('#contact')}
+            >
+              <span className="cta-icon">📅</span>
+              Book Session
+            </button>
+          </div>
         </nav>
         
-        <button className="menu-toggle" onClick={toggleMenu}>
-          <span></span>
-          <span></span>
-          <span></span>
+        <button className={`menu-toggle ${isMenuOpen ? 'active' : ''}`} onClick={toggleMenu}>
+          <span className="hamburger-line"></span>
+          <span className="hamburger-line"></span>
+          <span className="hamburger-line"></span>
         </button>
       </div>
     </header>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import './Contact.css';
 
 const Contact = () => {
@@ -11,6 +12,7 @@ const Contact = () => {
     concerns: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e) => {
     setFormData({
@@ -36,19 +38,37 @@ const Contact = () => {
 
   return (
     <section id="contact" className="contact">
-      <div className="container">
-        <div className="section-header">
-          <h2>Let's Start Your Child's Journey</h2>
-          <p>Ready to take the first step? I'm here to help you and your family succeed.</p>
-        </div>
+      <div className="contact-container">
+        <motion.div 
+          className="contact-header"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <div className="section-badge">Contact Us</div>
+          <h2 className="section-title">
+            Let's Start Your Child's <span className="title-highlight">Success Journey</span>
+          </h2>
+          <p className="section-subtitle">
+            Ready to take the first step? I'm here to help you and your family thrive through evidence-based behavioral therapy.
+          </p>
+        </motion.div>
 
         <div className="contact-content">
-          <div className="contact-info">
-            <h3>Get in Touch</h3>
-            <p>
-              I understand that reaching out for help can feel overwhelming. Rest assured 
-              that our initial consultation is a safe, judgment-free space where we can 
-              discuss your concerns and explore how behavioral therapy can help your child thrive.
+          {/* Get in Touch Section */}
+          <motion.div 
+            className="contact-section get-in-touch"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            viewport={{ once: true }}
+          >
+            <div className="section-icon">💬</div>
+            <h3 className="section-title">Get in Touch</h3>
+            <p className="section-description">
+              I understand that reaching out can feel overwhelming. Our initial consultation is a safe, 
+              judgment-free space to discuss your concerns and explore how we can help your child thrive.
             </p>
 
             <div className="contact-methods">
@@ -65,7 +85,7 @@ const Contact = () => {
                 <div className="method-icon">📧</div>
                 <div className="method-info">
                   <h4>Email</h4>
-                  <p>dr.hudajabeen.com</p>
+                  <p>dr.hudajabeen@therapy.com</p>
                   <span>Response within 24 hours</span>
                 </div>
               </div>
@@ -90,7 +110,10 @@ const Contact = () => {
             </div>
 
             <div className="insurance-info">
-              <h4>Insurance & Payment</h4>
+              <div className="insurance-header">
+                <span className="insurance-icon">💳</span>
+                <h4>Insurance & Payment</h4>
+              </div>
               <ul>
                 <li>Most major insurance plans accepted</li>
                 <li>Flexible payment plans available</li>
@@ -98,10 +121,21 @@ const Contact = () => {
                 <li>Free initial consultation</li>
               </ul>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="contact-form">
-            <h3>Schedule Your Free Consultation</h3>
+          {/* Schedule Free Consultation Section */}
+          <motion.div 
+            className="contact-section consultation-form"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            <div className="section-icon">📅</div>
+            <h3 className="section-title">Schedule Your Free Consultation</h3>
+            <p className="section-description">
+              Take the first step towards your child's success. Our comprehensive consultation helps us understand your unique needs.
+            </p>
             <form onSubmit={handleSubmit}>
               <div className="form-row">
                 <div className="form-group">
@@ -217,42 +251,93 @@ const Contact = () => {
                 ></textarea>
               </div>
 
-              <button type="submit" className="btn btn-primary">
-                Request Free Consultation
+              <button 
+                type="submit" 
+                disabled={isSubmitting}
+                className="submit-btn"
+              >
+                {isSubmitting ? 'Sending...' : 'Schedule Free Consultation'}
               </button>
-
-              <p className="form-note">
-                * Required fields. All information is kept strictly confidential in accordance with HIPAA regulations.
-              </p>
             </form>
-          </div>
-        </div>
 
-        <div className="consultation-info">
-          <h3>What to Expect in Your Free Consultation</h3>
-          <div className="consultation-steps">
-            <div className="step">
-              <div className="step-number">1</div>
-              <div className="step-content">
-                <h4>Initial Discussion (15-20 minutes)</h4>
-                <p>We'll talk about your child's current challenges and your family's goals.</p>
+            <div className="form-footer">
+              <p>
+                <strong>Privacy Promise:</strong> Your information is completely confidential and 
+                protected under HIPAA regulations. We will never share your details with third parties.
+              </p>
+            </div>
+          </motion.div>
+
+          {/* What to Expect Section */}
+          <motion.div 
+            className="contact-section what-to-expect"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            <div className="section-icon">✨</div>
+            <h3 className="section-title">What to Expect</h3>
+            <p className="section-description">
+              Our consultation process is designed to be comfortable, informative, and tailored to your family's unique needs.
+            </p>
+
+            <div className="expectation-steps">
+              <div className="step-item">
+                <div className="step-number">1</div>
+                <div className="step-content">
+                  <h4>Initial Discussion</h4>
+                  <p>We'll discuss your child's challenges, strengths, and your family's goals in a supportive environment.</p>
+                </div>
+              </div>
+
+              <div className="step-item">
+                <div className="step-number">2</div>
+                <div className="step-content">
+                  <h4>Assessment Planning</h4>
+                  <p>Together, we'll create a personalized assessment plan to understand your child's specific needs.</p>
+                </div>
+              </div>
+
+              <div className="step-item">
+                <div className="step-number">3</div>
+                <div className="step-content">
+                  <h4>Treatment Roadmap</h4>
+                  <p>I'll outline evidence-based interventions and create a clear path forward for your child's success.</p>
+                </div>
+              </div>
+
+              <div className="step-item">
+                <div className="step-number">4</div>
+                <div className="step-content">
+                  <h4>Family Support</h4>
+                  <p>We'll discuss how to support your child at home and coordinate with schools and other providers.</p>
+                </div>
               </div>
             </div>
-            <div className="step">
-              <div className="step-number">2</div>
-              <div className="step-content">
-                <h4>Assessment Overview (10 minutes)</h4>
-                <p>I'll explain the evaluation process and what to expect in our sessions.</p>
+
+            <div className="consultation-benefits">
+              <div className="benefit-header">
+                <span className="benefit-icon">🎯</span>
+                <h4>Consultation Benefits</h4>
+              </div>
+              <ul>
+                <li>Comprehensive understanding of your child's needs</li>
+                <li>Clear treatment recommendations and timeline</li>
+                <li>Insurance and payment options discussion</li>
+                <li>Resources and strategies you can start using immediately</li>
+                <li>No obligation to continue beyond consultation</li>
+              </ul>
+            </div>
+
+            <div className="commitment-badge">
+              <div className="badge-icon">💝</div>
+              <div className="badge-content">
+                <h4>My Commitment to You</h4>
+                <p>Every family deserves compassionate, evidence-based care. I'm here to support your journey with expertise, understanding, and hope.</p>
               </div>
             </div>
-            <div className="step">
-              <div className="step-number">3</div>
-              <div className="step-content">
-                <h4>Next Steps (5-10 minutes)</h4>
-                <p>We'll discuss timeline, scheduling, and answer any questions you have.</p>
-              </div>
-            </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
