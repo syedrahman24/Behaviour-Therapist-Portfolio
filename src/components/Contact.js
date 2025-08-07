@@ -12,7 +12,7 @@ const Contact = () => {
     concerns: '',
     message: ''
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitting] = useState(false);
 
   const handleChange = (e) => {
     setFormData({
