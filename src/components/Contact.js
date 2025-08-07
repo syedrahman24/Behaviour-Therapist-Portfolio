@@ -47,7 +47,7 @@ const Contact = () => {
           viewport={{ once: true }}
         >
           <div className="section-badge">Contact Us</div>
-          <h2 className="section-title">
+          <h2 className="black">
             Let's Start Your Child's <span className="title-highlight">Success Journey</span>
           </h2>
           <p className="section-subtitle">
